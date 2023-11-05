@@ -6,7 +6,7 @@ do
     echo $line
     docker pull $line 
 
-done < image-list.txt
+done < mirrored-image-list.txt
 
 
 

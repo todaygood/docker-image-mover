@@ -1,1 +1,2 @@
-quay.io/prometheus-operator/prometheus-config-reloader:v0.45.0
+library/alpine:3.14
+alpine:3.15.0
