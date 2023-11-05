@@ -2,3 +2,4 @@ image-list.txt
 mirrored-image-list.txt
 bak/*
 out/*
+.vscode/*

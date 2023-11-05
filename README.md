@@ -22,6 +22,23 @@ installed docker, skopeo ,python3
 5. 03-push.sh  new_registry
 
 
+```bash
+[root@pcentos docker-image-mover]# ./03-push.sh  pastack-registry.paic.com.cn
+/usr/bin/skopeo
+skopeo copy docker-archive:///root/docker-image-mover/out/cni-v3.26.3.tar  docker://pastack-registry.paic.com.cn/calico/cni:v3.26.3
+Getting image source signatures
+Copying blob a6c32b08bf2b done
+Copying blob 12c4bbe57ef6 done
+Copying blob 2d5ea3644a46 done
+Copying blob ba2f9db4970a done
+Copying blob 12655f7f7839 done
+Copying blob c0223a8035c1 done
+Copying blob 2a200d399ae4 done
+Copying blob 8df6bd1ca1ee done
+Copying blob db2f02c7410e done
+Copying blob c320177a6d03 done
 
+
+```
 
 
