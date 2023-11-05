@@ -15,23 +15,27 @@ def replace_registry(imageUrl):
             return 
         
         src_registry = line[0:pos]
-        dest_registry = line[pos+1:len(line)-1].rstrip()
+        dest_registry = line[pos+1:len(line)].rstrip()
         registry_mirror_dict[src_registry] = dest_registry    
 
+     
+    str_list= imageUrl.split(":")
 
-    # 查找/, 处理没有声明registry的imageUrl
-    pos1=imageUrl.find('/')
-    if pos1 < 0 :
-        new_imageUrl = "m.daocloud.io/"+ imageUrl
-    else:
-        str_list= imageUrl.split(":")
-        name = str_list[0]
-        pos2 = name.find('.')
-        if pos2 < 0:
-           new_imageUrl = "m.daocloud.io/"+ imageUrl     
-        else:        
-            for src_registry,dest_registry in registry_mirror_dict.items():
+    # handle: docker.m.daocloud.io/calico/cni
+    if len(str_list) == 1 :
+        imageUrl +=":latest"
+
+    name = str_list[0].split("/")
+    pos2 = name[0].find('.')
+
+    # handle: alpine:3.0
+    if pos2 < 0:
+        new_imageUrl = "m.daocloud.io/"+ imageUrl     
+    else:  
+        for src_registry,dest_registry in registry_mirror_dict.items():
+            if name[0] == src_registry:
                 new_imageUrl= imageUrl.replace(src_registry,dest_registry)
+                continue
 
     return new_imageUrl
 
