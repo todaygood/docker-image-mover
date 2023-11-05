@@ -22,7 +22,7 @@ if [ $# != 1 ]; then
 fi 
 
 new_registry=$1
-# new_registry=${1:"pastack-registry.paic.com.cn"}
+# new_registry=${1:"registry.hujun.com"}
 
 while read line  || [[ -n ${line} ]]
 do
