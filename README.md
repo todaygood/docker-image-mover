@@ -1,8 +1,8 @@
 # docker-image-mover
 
-批量转移image,从一个库转移到另外一个库中，batch-move-image-between-registry
+batch downloading  docker images from mirrored registry especially in China.
 
-mirror image 是从 https://github.com/DaoCloud/public-image-mirror 获得，[参见registry site替换](./domain_mirror.txt)
+mirror image registry is from https://github.com/DaoCloud/public-image-mirror, thanks to DaoCloud.
 
 
 ##  Prerequisites
@@ -11,15 +11,24 @@ installed docker, skopeo ,python3
 
 ## Quickstart 
 
-1. edit image-list.txt 
+1. new create file "image-list.txt", then input image list like:
 
-2. 00-mirror.sh 
+```bash
+busybox
+ghcr.io/kube-vip/kube-vip:v0.6.3
+docker.io/calico/csi:v3.26.3
+```
 
-3. 01-pull.sh
 
-4. 02-save.sh
+2. run 00-mirror.sh, it will generate another file named "mirrored-image-list.txt".
 
-5. 03-push.sh  new_registry
+3. run 01-pull.sh, it will pull images with `docker pull`.
+
+4. run 02-save.sh, it will save images to `out` directory.
+
+5. run 03-push.sh  new_registry, it will push images to a new registry.
+
+6. run 04-clean.sh, it will clean local images if you want to. 
 
 
 ```bash
@@ -37,7 +46,6 @@ Copying blob 2a200d399ae4 done
 Copying blob 8df6bd1ca1ee done
 Copying blob db2f02c7410e done
 Copying blob c320177a6d03 done
-
 
 ```
 
