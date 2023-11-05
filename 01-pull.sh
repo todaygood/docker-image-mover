@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while read line
+while read line  || [[ -n ${line} ]]
 do
 
     echo $line

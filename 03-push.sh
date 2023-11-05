@@ -24,7 +24,7 @@ fi
 new_registry=$1
 # new_registry=${1:"pastack-registry.paic.com.cn"}
 
-while read line
+while read line  || [[ -n ${line} ]]
 do
     image_name=$(echo $line | awk -F: '{print $1}')
 
