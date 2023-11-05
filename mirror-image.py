@@ -49,7 +49,7 @@ with open("image-list.txt",'r',encoding='utf-8') as fh:
     fh.close()
 
 
-with open("mirrored-image-list.txt",'a+',encoding='utf-8') as mfh:
+with open("mirrored-image-list.txt",'w+',encoding='utf-8') as mfh:
     for i, image in enumerate(mirrored_image_list):
         if i != len(mirrored_image_list)-1:
             mfh.write(image+"\n")

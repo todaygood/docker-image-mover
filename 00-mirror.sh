@@ -1,8 +1,9 @@
 #!/bin/bash
 
-mv image-list.txt  bak/image-list.txt-`date '+%Y%m%d%H%M%S'`
-mv mirrored-image-list.txt   bak/mirrored-image-list.txt-`date '+%Y%m%d%H%M%S'`
+mkdir -p bak/
+cp image-list.txt  bak/image-list.txt-`date '+%Y%m%d%H%M%S'`
+cp mirrored-image-list.txt   bak/mirrored-image-list.txt-`date '+%Y%m%d%H%M%S'`
 
 
-python3 mirror-image.py 
+./mirror-image.py 
 
