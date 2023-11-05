@@ -10,12 +10,13 @@ function copy-image() {
     ${SKOPEO} copy --retry-times "${RETRY}" --all --dest-tls-verify=false "docker://${image1}" "docker://${image2}"
 }
 
-if `which skopeo`; then 
-    ehco "Error, skopeo is not existed."
+which skopeo 
+if [ $? != 0 ]; then 
+    echo "Error, skopeo is not existed."
     exit 2 
 fi 
 
-if [ $# != 2 ]; then 
+if [ $# != 1 ]; then 
     echo "USAGE: $0 dest_registry"
     exit 1
 fi 
