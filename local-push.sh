@@ -39,17 +39,9 @@ do
     
     image_version=$(echo $line | awk -F: '{print $2}')
 
-    short_name=$(echo $image_name| awk -F"/" '{print $NF}')
-
-    image_version=$(echo $line | awk -F: '{print $2}')
-
-    short_image_name_version=$short_name-$image_version	
-
-    echo "skopeo copy docker-archive://${out_dir}/${short_image_name_version}.tar  docker://$image_name:$image_version" 
-    skopeo copy docker-archive://${out_dir}/${short_image_name_version}.tar  docker://$image_name:$image_version 
+    skopeo copy docker://${line}  docker://$image_name:$image_version 
 
 done < mirrored-image-list.txt
 
 
 
- skopeo copy docker://k8s.m.daocloud.io/metrics-server/metrics-server:v0.6.4 docker://pastack-registry.paic.com.cn/metrics-server/metrics-server:v0.6.4 

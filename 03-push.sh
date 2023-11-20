@@ -38,11 +38,7 @@ do
     fi 
     
     image_version=$(echo $line | awk -F: '{print $2}')
-
     short_name=$(echo $image_name| awk -F"/" '{print $NF}')
-
-    image_version=$(echo $line | awk -F: '{print $2}')
-
     short_image_name_version=$short_name-$image_version	
 
     echo "skopeo copy docker-archive://${out_dir}/${short_image_name_version}.tar  docker://$image_name:$image_version" 
