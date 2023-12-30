@@ -6,5 +6,5 @@ cp mirrored-image-list.txt   bak/mirrored-image-list.txt-`date '+%Y%m%d%H%M%S'`
 
 chmod a+x *.py 
 
-./mirror-image.py 
+./replace-with-mirror.py
 
