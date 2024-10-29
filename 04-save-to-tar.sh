@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+#set -x
 out_dir=$(pwd)/out
 mkdir -p $out_dir
 
